@@ -1,0 +1,86 @@
+// --- Testimonials Slider ---
+const track = document.getElementById('sliderTrack');
+const slides = Array.from(document.querySelectorAll('.testimonial-slide'));
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+const dots = Array.from(document.querySelectorAll('.dot'));
+
+let currentIndex = 0;
+
+function updateSlider() {
+    // Сдвигаем трек: ширина слайда (100%) + gap (40px, но в % это сложнее, 
+    // поэтому используем простой translateX на 100% * индекс)
+    // Вариант проще: считаем ширину слайда
+    const slideWidth = slides[0].clientWidth; // получаем ширину одного слайда
+    // Учитываем gap в CSS (40px). 
+    // Проще всего двигать на (100% + gap) если использовать calc, но в JS:
+    
+    // Сброс позиции, так как у нас flex gap
+    // Лучший способ для flex-gap слайдера:
+    const amountToMove = slides[currentIndex].offsetLeft; 
+    // offsetLeft вернет позицию слайда относительно родителя, учитывая gap
+    
+    track.style.transform = `translateX(-${amountToMove}px)`;
+
+    // Обновляем точки
+    dots.forEach(dot => dot.classList.remove('active'));
+    if(dots[currentIndex]) {
+        dots[currentIndex].classList.add('active');
+    }
+}
+
+nextBtn.addEventListener('click', () => {
+    currentIndex++;
+    if (currentIndex >= slides.length) {
+        currentIndex = 0; // Зацикливаем
+    }
+    updateSlider();
+});
+
+prevBtn.addEventListener('click', () => {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = slides.length - 1; // Зацикливаем в конец
+    }
+    updateSlider();
+});
+
+// Клик по точкам
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlider();
+    });
+});
+
+// Обновляем при изменении размера окна, чтобы не съехало
+window.addEventListener('resize', updateSlider);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        const btn = item.querySelector('.toggle-btn');
+
+        header.addEventListener('click', () => {
+            // Закрываем все остальные (опционально, если нужно поведение "один открыт")
+            accordionItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('open');
+                    otherItem.querySelector('.toggle-btn').textContent = '+';
+                }
+            });
+
+            // Тогглим текущий
+            item.classList.toggle('open');
+            
+            // Меняем значок + на -
+            if (item.classList.contains('open')) {
+                btn.textContent = '-';
+            } else {
+                btn.textContent = '+';
+            }
+        });
+    });
+});

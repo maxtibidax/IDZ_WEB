@@ -125,17 +125,32 @@ body {
     height: auto;
 }
 
-/* --- Logos --- */
 .logos {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    filter: grayscale(100%);
-    opacity: 0.7;
+    gap: 20px; /* Добавим отступы, чтобы на мобильных они не слипались */
     margin-bottom: 100px;
 }
+
 .logos img {
     height: 40px;
+    /* Делаем черно-белым и полупрозрачным по умолчанию */
+    filter: grayscale(100%);
+    opacity: 0.7;
+    /* Плавная анимация перехода */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* При наведении курсора */
+.logos img:hover {
+    /* Возвращаем цвета */
+    filter: grayscale(0%);
+    /* Возвращаем полную яркость */
+    opacity: 1;
+    /* Небольшое увеличение для эффекта (опционально) */
+    transform: scale(1.1);
 }
 
 /* --- Section Headers --- */
@@ -882,6 +897,22 @@ body {
 
 /* --- Media Queries (Mobile) --- */
 @media (max-width: 900px) {
+
+    .logos {
+        display: grid; /* Включаем сетку вместо флекса */
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
+        /* Поскольку у вас 6 логотипов, они автоматически встанут в 2 ряда */
+        gap: 30px; /* Расстояние между ячейками */
+        justify-items: center; /* Центрируем логотипы по горизонтали */
+        align-items: center; /* Центрируем по вертикали */
+        margin-bottom: 60px;
+    }
+
+    /* Немного уменьшим логотипы, чтобы они не слипались в сетке */
+    .logos img {
+        max-width: 80px; 
+        height: auto;
+    }
 
        /* --- Кнопка Бургера --- */
     .menu-toggle {

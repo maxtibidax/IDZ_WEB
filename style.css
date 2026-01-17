@@ -16,6 +16,16 @@
 body {
     color: var(--dark);
     line-height: 1.5;
+    padding-top: 100px;
+}
+
+.header-wrapper {
+    position: fixed; /* Фиксируем элемент */
+    top: 0;
+    left: 0;
+    width: 100%; /* Растягиваем на всю ширину экрана */
+    background-color: rgba(255, 255, 255, 1);
+ z-index: 1000; /* Чтобы меню было ПОВЕРХ всех остальных элементов */
 }
 
 .container {
@@ -58,8 +68,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 /* Настраиваем блок логотипа, чтобы картинка и текст были в ряд */
 .logo {

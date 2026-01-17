@@ -82,21 +82,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = item.querySelector('.toggle-btn');
 
         header.addEventListener('click', () => {
-            // Закрываем все остальные (опционально, если нужно поведение "один открыт")
+            // Если хотим закрывать другие при открытии одной:
             accordionItems.forEach(otherItem => {
-                if (otherItem !== item) {
+                if (otherItem !== item && otherItem.classList.contains('open')) {
                     otherItem.classList.remove('open');
+                    // Возвращаем плюс у закрытых
                     otherItem.querySelector('.toggle-btn').textContent = '+';
                 }
             });
 
-            // Тогглим текущий
+            // Переключаем класс open
             item.classList.toggle('open');
             
-            // Меняем значок + на -
+            // Логика смены значка
             if (item.classList.contains('open')) {
+                // Если открыли - ставим минус
                 btn.textContent = '-';
             } else {
+                // Если закрыли - ставим плюс
                 btn.textContent = '+';
             }
         });

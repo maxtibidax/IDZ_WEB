@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Positivus - Digital Marketing Agency</title>
-    <!-- Шрифт Space Grotesk от Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,19 +11,24 @@
 </head>
 <body>
 
-<body>
-
     <!-- Обертка для фиксации меню -->
     <div class="header-wrapper">
         <nav class="container navbar">
-            <!-- Ваш код логотипа -->
+            <!-- Логотип -->
             <div class="logo">
                 <img src="Vector.svg" alt="Positivus Logo" class="logo-img">
                 <span>Positivus</span>
             </div>
 
-            <!-- Ваш код меню -->
-            <ul class="nav-links">
+            <!-- Кнопка Бургер -->
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <!-- Ссылки меню -->
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About us</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#cases">Use Cases</a></li>

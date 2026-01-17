@@ -4,6 +4,24 @@ const slides = Array.from(document.querySelectorAll('.testimonial-slide'));
 const nextBtn = document.getElementById('nextBtn');
 const prevBtn = document.getElementById('prevBtn');
 const dots = Array.from(document.querySelectorAll('.dot'));
+// --- Mobile Menu Toggle ---
+const menuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('nav-links');
+
+menuBtn.addEventListener('click', () => {
+    // Переключаем класс active для меню (показать/скрыть)
+    navLinks.classList.toggle('active');
+    // Переключаем класс is-active для кнопки (анимация в крестик)
+    menuBtn.classList.toggle('is-active');
+});
+
+// Закрывать меню при клике на любую ссылку (удобно для одностраничных сайтов)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.classList.remove('is-active');
+    });
+});
 
 let currentIndex = 0;
 

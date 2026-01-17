@@ -417,38 +417,28 @@ body {
 }
 
 .cases-container {
-    background-color: var(--dark);
+    background-color: transparent; /* Фон прозрачный */
     color: var(--white);
-    border-radius: 45px;
-    padding: 70px 60px;
-    display: flex;
-    /* Убираем тень, так как на этом макете блок плоский, 
-       но если хотите тень как у других, раскомментируйте следующую строку: */
-    /* box-shadow: var(--shadow); */ 
+    padding: 0;
+    
+    /* Флекс для расположения в ряд */
+    display: flex; 
+    
+    /* ИСПРАВЛЕНИЕ 1: Убран пробел между 20 и px */
+    gap: 20px; 
 }
 
 .case-item {
     flex: 1; /* Растягиваем элементы равномерно */
-    padding: 0 40px;
+    
+    background-color: var(--dark); /* Черный фон у каждой карточки */
+    color: var(--white);
+    border-radius: 45px; /* Закругление */
+    padding: 60px 40px; /* Отступы внутри карточки */
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: 1px solid rgba(255, 255, 255, 0.5); /* Белая полупрозрачная линия справа */
-}
-
-/* Убираем линию у последнего элемента */
-.case-item:last-child {
-    border-right: none;
-}
-
-/* Убираем отступ слева у первого элемента */
-.case-item:first-child {
-    padding-left: 0;
-}
-
-/* Убираем отступ справа у последнего элемента */
-.case-item:last-child {
-    padding-right: 0;
 }
 
 .case-item p {
@@ -464,16 +454,35 @@ body {
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .case-link:hover {
-    text-decoration: underline;
+    opacity: 0.8;
 }
 
-.green-arrow {
-    transform: rotate(-45deg); /* Поворот стрелки */
-    font-size: 1.4rem;
+.case-arrow-icon {
+    width: 20px;
+    height: auto;
+}
+
+@media (max-width: 900px) {
+    .cases-container {
+        flex-direction: column;
+        padding: 0;
+        gap: 20px;
+    }
+
+    .case-item {
+        border-radius: 45px;
+        padding: 40px 30px;
+    }
+    
+    /* На всякий случай убеждаемся, что отступы есть и на мобильном */
+    .case-item:first-child,
+    .case-item:last-child {
+        padding: 40px 30px;
+    }
 }
 
 .team {
@@ -1010,21 +1019,23 @@ body {
     }
     .card-img { align-self: center; }
 
-    /* Case Studies */
     .cases-container {
         flex-direction: column;
+        padding: 0;
+        gap: 20px; /* Отступы между карточками по вертикали */
+    }
+
+    .case-item {
+        border-radius: 45px; /* Сохраняем круглые углы */
+        border: none;
         padding: 40px 30px;
     }
-    .case-item {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-        padding: 40px 0;
+
+    .case-item:last-child, 
+    .case-item:first-child {
+        padding: 40px 30px;
+        border: none;
     }
-    .case-item:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-    .case-item:first-child { padding-top: 0; }
 
     /* Team */
     .team-grid { grid-template-columns: 1fr; }

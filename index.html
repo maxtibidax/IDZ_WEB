@@ -34,8 +34,12 @@
                 <li><a href="#cases">Use Cases</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#blog">Blog</a></li>
+            </ul>
+
+            <ul class="nav-links" id="nav-links">
                 <li class="btn-outline"><a href="#contact">Request a quote</a></li>
             </ul>
+
         </nav>
     </div>
 
@@ -47,7 +51,6 @@
             <a href="#" class="btn-primary">Book a consultation</a>
         </div>
         <div class="hero-image">
-            <!-- Заглушка для иллюстрации рупора -->
             <img src="./Rupor.png" alt="Digital Marketing">
         </div>
     </header>
@@ -55,11 +58,12 @@
     <!-- Logos Section -->
     <section class="container logos">
         <img src="./amazon.svg" alt="Amazon">
-        <img src="dribble.svg" alt="Dribbble"> <!-- Пример -->
+        <img src="dribble.svg" alt="Dribbble"> 
         <img src="./hubspot.svg" alt="HubSpot">
         <img src="./netflix.svg" alt="Netflix">
         <img src="./zoom.svg" alt="Zoom">
         <img src="./notion.svg" alt="Notion">
+        
     </section>
 
     <!-- Services Section -->
@@ -70,12 +74,13 @@
         </div>
 
         <div class="services-grid">
-            <!-- Card 1: Grey -->
+            <!-- Card 1: SEO (Grey) -->
             <div class="card card-grey">
                 <div class="card-text">
                     <h3>Search engine optimization</h3>
                     <a href="#" class="learn-more">
-                        <span class="icon-arrow">↗</span> Learn more
+                        <img src="./bcga.svg" alt="Arrow" class="arrow-icon">
+                        <span>Learn more</span>
                     </a>
                 </div>
                 <div class="card-img">
@@ -83,12 +88,13 @@
                 </div>
             </div>
 
-            <!-- Card 2: Green -->
+            <!-- Card 2: PPC (Green) -->
             <div class="card card-green">
                 <div class="card-text">
                     <h3>Pay-per-click advertising</h3>
                     <a href="#" class="learn-more">
-                        <span class="icon-arrow">↗</span> Learn more
+                        <img src="./bcga.svg" alt="Arrow" class="arrow-icon">
+                        <span>Learn more</span>
                     </a>
                 </div>
                 <div class="card-img">
@@ -96,12 +102,13 @@
                 </div>
             </div>
 
-            <!-- Card 3: Dark -->
+            <!-- Card 3: SMM (Dark) -->
             <div class="card card-dark">
                 <div class="card-text">
                     <h3>Social Media Marketing</h3>
                     <a href="#" class="learn-more white-text">
-                        <span class="icon-arrow white-arrow">↗</span> Learn more
+                        <img src="./wcba.svg" alt="Arrow" class="arrow-icon">
+                        <span>Learn more</span>
                     </a>
                 </div>
                 <div class="card-img">
@@ -109,49 +116,48 @@
                 </div>
             </div>
             
-             <!-- Card 4: Grey -->
+             <!-- Card 4: Email (Grey) -->
              <div class="card card-grey">
                 <div class="card-text">
                     <h3>Email<br>Marketing</h3>
                     <a href="#" class="learn-more">
-                        <span class="icon-arrow">↗</span> Learn more
+                        <img src="./bcga.svg" alt="Arrow" class="arrow-icon">
+                        <span>Learn more</span>
                     </a>
                 </div>
                 <div class="card-img">
                     <img src="./EM.svg" alt="Email">
                 </div>
             </div>
+
             <!-- Card 5: Content Creation (Green) -->
             <div class="card card-green">
                 <div class="card-text">
                     <h3>Content<br>Creation</h3>
                     <a href="#" class="learn-more">
-                        <span class="icon-arrow">↗</span> Learn more
+                        <img src="./bcga.svg" alt="Arrow" class="arrow-icon">
+                        <span>Learn more</span>
                     </a>
                 </div>
                 <div class="card-img">
-                    <!-- Заглушка для иллюстрации папок/файлов -->
                     <img src="./CC.svg" alt="Content Creation">
                 </div>
             </div>
 
-            <!-- Card 6: Analytics and Tracking (Dark) -->
+            <!-- Card 6: Analytics (Dark) -->
             <div class="card card-dark">
                 <div class="card-text">
-                    <h3 class="highlight-green">Analytics and<br>Tracking</h3>
-                    <a href="#" class="learn-more white-text">
-                        <span class="icon-arrow white-arrow">↗</span> Learn more
+                <h3>Analytics and<br>Tracking</h3>
+                                    <a href="#" class="learn-more white-text">
+                        <img src="./wcba.svg" alt="Arrow" class="arrow-icon">
+                        <span>Learn more</span>
                     </a>
                 </div>
                 <div class="card-img">
-                    <!-- Заглушка для иллюстрации графиков -->
                     <img src="./AaD.svg" alt="Analytics">
                 </div>
             </div>
         </div>
-        
-            
-        </div> <!-- Конец .services-grid -->
 
         <!-- CTA Block: Let's make things happen -->
         <div class="cta-block">
@@ -535,48 +541,44 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
+   <footer class="container footer-section">
+        <div class="footer-wrapper">
+            
+            <!-- Верхний ряд: Лого, Меню, Соцсети -->
             <div class="footer-top">
-                <!-- Логотип (белый) -->
+                <!-- 1. Логотип -->
                 <div class="logo white">
-                    <!-- Класс footer-logo-img инвертирует цвет картинки в белый -->
                     <img src="Vector.svg" alt="Positivus" class="footer-logo-img">
                     <span>Positivus</span>
                 </div>
-                
-                <!-- Иконки соцсетей -->
+
+                <!-- 2. Меню (новое) -->
+                <ul class="footer-nav">
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#cases">Use Cases</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+
+                <!-- 3. Соцсети -->
                 <div class="socials">
                     <a href="#" class="social-icon">
-                        <!-- LinkedIn SVG -->
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="12" fill="white"/>
-                            <path d="M15 15.75H13.5V11.25H12V15.75H10.5V8.25H12V9.75C12.3 9 13.05 8.25 14.25 8.25C15.75 8.25 16.5 9.3 16.5 11.25V15.75H15Z" fill="#191A23"/>
-                            <path d="M8.25 15.75H9.75V8.25H8.25V15.75Z" fill="#191A23"/>
-                            <path d="M9 6C8.58579 6 8.25 6.33579 8.25 6.75C8.25 7.16421 8.58579 7.5 9 7.5C9.41421 7.5 9.75 7.16421 9.75 6.75C9.75 6.33579 9.41421 6 9 6Z" fill="#191A23"/>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="white"/><path d="M15 15.75H13.5V11.25H12V15.75H10.5V8.25H12V9.75C12.3 9 13.05 8.25 14.25 8.25C15.75 8.25 16.5 9.3 16.5 11.25V15.75H15Z" fill="#191A23"/><path d="M8.25 15.75H9.75V8.25H8.25V15.75Z" fill="#191A23"/><path d="M9 6C8.58579 6 8.25 6.33579 8.25 6.75C8.25 7.16421 8.58579 7.5 9 7.5C9.41421 7.5 9.75 7.16421 9.75 6.75C9.75 6.33579 9.41421 6 9 6Z" fill="#191A23"/></svg>
                     </a>
-                    
                     <a href="#" class="social-icon">
-                        <!-- Facebook SVG -->
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="12" fill="white"/>
-                            <path d="M13.5 16.5V10.5H15L15.75 8.25H13.5V7.5C13.5 6.75 13.5 6 15 6H15.75V3.75H13.5C11.25 3.75 10.5 5.25 10.5 7.5V8.25H9V10.5H10.5V16.5H13.5Z" fill="#191A23"/>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="white"/><path d="M13.5 16.5V10.5H15L15.75 8.25H13.5V7.5C13.5 6.75 13.5 6 15 6H15.75V3.75H13.5C11.25 3.75 10.5 5.25 10.5 7.5V8.25H9V10.5H10.5V16.5H13.5Z" fill="#191A23"/></svg>
                     </a>
-
                     <a href="#" class="social-icon">
-                        <!-- Twitter/X SVG -->
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="12" fill="white"/>
-                            <path d="M16.5 7.5H14.85L12.6 10.35L10.5 7.5H6.75L11.1 13.05L6.75 18H8.4L10.95 14.85L13.35 18H17.25L12.45 12L16.5 7.5ZM15.3 16.95H14.4L8.1 8.55H9L15.3 16.95Z" fill="#191A23"/>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="white"/><path d="M16.5 7.5H14.85L12.6 10.35L10.5 7.5H6.75L11.1 13.05L6.75 18H8.4L10.95 14.85L13.35 18H17.25L12.45 12L16.5 7.5ZM15.3 16.95H14.4L8.1 8.55H9L15.3 16.95Z" fill="#191A23"/></svg>
                     </a>
                 </div>
             </div>
+
+            <!-- Средний ряд: Контакты и Подписка -->
             <div class="footer-content">
                 <div class="contact-info">
-                    <h4>Contact us:</h4>
+                    <h4 class="contact-label">Contact us:</h4>
                     <p>Email: info@positivus.com</p>
                     <p>Phone: 555-567-8901</p>
                     <p>Address: 1234 Main St</p>
@@ -586,8 +588,18 @@
                     <button>Subscribe to news</button>
                 </div>
             </div>
-            <div class="copyright">
-                © 2023 Positivus. All Rights Reserved.
+
+            <!-- Линия разделитель -->
+            <hr class="footer-divider">
+
+            <!-- Нижний ряд: Копирайт и Кредиты -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2023 Positivus. All Rights Reserved.
+                </div>
+                <div class="credits">
+                    <a href="#">Privacy Policy</a>
+                </div>
             </div>
         </div>
     </footer>

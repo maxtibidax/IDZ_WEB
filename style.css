@@ -1,9 +1,13 @@
+/* ====================================
+   ПЕРЕМЕННЫЕ И БАЗОВЫЕ СТИЛИ
+   ==================================== */
+
 :root {
     --green: #B9FF66;
     --dark: #191A23;
     --grey: #F3F3F3;
     --white: #FFFFFF;
-    --shadow: 0px 5px 0px #191A23; /* Ключевая фишка дизайна */
+    --shadow: 0px 5px 0px #191A23;
 }
 
 * {
@@ -19,31 +23,27 @@ body {
     padding-top: 100px;
 }
 
-.header-wrapper {
-    position: fixed; /* Фиксируем элемент */
-    top: 0;
-    left: 0;
-    width: 100%; /* Растягиваем на всю ширину экрана */
-    background-color: rgba(255, 255, 255, 1);
- z-index: 1000; /* Чтобы меню было ПОВЕРХ всех остальных элементов */
-}
-
 .container {
     max-width: 1240px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* --- Buttons --- */
+/* ====================================
+   КНОПКИ
+   ==================================== */
+
 .btn-outline {
     border: 1px solid var(--dark);
     border-radius: 14px;
     padding: 12px 28px;
     transition: 0.3s;
 }
+
 .btn-outline:hover {
     background: var(--dark);
 }
+
 .btn-outline:hover a {
     color: var(--white);
 }
@@ -58,48 +58,90 @@ body {
     font-size: 1.2rem;
     transition: 0.3s;
 }
+
 .btn-primary:hover {
     background-color: #333;
     transform: translateY(-2px);
 }
 
-/* --- Navbar --- */
+.btn-full {
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* ====================================
+   HEADER И НАВИГАЦИЯ
+   ==================================== */
+
+.header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 1000;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    position: relative; /* ВАЖНО: Это держит выпадающее меню на месте */
+    position: relative; 
 }
 
-/* Настраиваем блок логотипа, чтобы картинка и текст были в ряд */
 .logo {
     font-size: 2rem;
     font-weight: 700;
-    display: flex;       /* Включаем флекс, чтобы выстроить в ряд */
-    align-items: center; /* Выравниваем по вертикали по центру */
-    gap: 10px;           /* Расстояние между иконкой и текстом */
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Настраиваем размер самой иконки */
 .logo-img {
-    height: 35px; /* Высота под размер текста (примерно) */
-    width: auto;  /* Ширина подстроится автоматически */
+    height: 35px;
+    width: auto;
 }
+
 .nav-links {
     display: flex;
     list-style: none;
     gap: 30px;
     align-items: center;
 }
+
 .nav-links a {
     text-decoration: none;
     color: var(--dark);
     font-size: 1.1rem;
 }
 
-/* --- Hero --- */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1001;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 3px;
+    background-color: var(--dark);
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* ====================================
+   HERO СЕКЦИЯ
+   ==================================== */
+
 .hero {
     display: flex;
     align-items: center;
@@ -107,53 +149,57 @@ body {
     padding: 40px 20px;
     margin-bottom: 60px;
 }
+
 .hero-content {
     max-width: 50%;
 }
+
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 30px;
     font-weight: 500;
 }
+
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 40px;
     max-width: 500px;
 }
+
 .hero-image img {
     max-width: 100%;
     height: auto;
 }
 
+/* ====================================
+   ЛОГОТИПЫ ПАРТНЕРОВ
+   ==================================== */
+
 .logos {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px; /* Добавим отступы, чтобы на мобильных они не слипались */
+    gap: 20px;
     margin-bottom: 100px;
 }
 
 .logos img {
     height: 40px;
-    /* Делаем черно-белым и полупрозрачным по умолчанию */
     filter: grayscale(100%);
     opacity: 0.7;
-    /* Плавная анимация перехода */
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
-/* При наведении курсора */
 .logos img:hover {
-    /* Возвращаем цвета */
     filter: grayscale(0%);
-    /* Возвращаем полную яркость */
     opacity: 1;
-    /* Небольшое увеличение для эффекта (опционально) */
-    transform: scale(1.1);
 }
 
-/* --- Section Headers --- */
+/* ====================================
+   ЗАГОЛОВКИ СЕКЦИЙ
+   ==================================== */
+
 .section-header {
     display: flex;
     align-items: center;
@@ -161,6 +207,7 @@ body {
     margin-bottom: 60px;
     flex-wrap: wrap;
 }
+
 .highlight {
     background-color: var(--green);
     display: inline-block;
@@ -169,11 +216,19 @@ body {
     font-size: 2.5rem;
     font-weight: 500;
 }
+
 .section-header p {
     max-width: 500px;
 }
 
-/* --- Services Grid --- */
+/* ====================================
+   СЕРВИСЫ (КАРТОЧКИ)
+   ==================================== */
+.services {
+    margin-bottom: 100px; /* Отступ снизу до следующего блока */
+    scroll-margin-top: 150px; 
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -206,42 +261,94 @@ body {
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
 }
+
 .card-grey .card-text h3 { background-color: var(--green); }
 .card-green .card-text h3 { background-color: var(--white); }
 .card-dark .card-text h3 { background-color: var(--white); }
-.card-dark .card-text h3.highlight-green {
-    background-color: var(--green);
-    color: var(--dark);
-}
+
+
+/* Ссылка-контейнер */
 .learn-more {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: center; 
+    gap: 15px;           
     margin-top: 50px;
     text-decoration: none;
     color: var(--dark);
     font-weight: 500;
 }
-.icon-arrow {
-    background: var(--dark);
-    color: var(--green);
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    transform: rotate(-45deg); /* Делаем стрелку вверх-вправо */
+
+.arrow-icon {
+    width: 40px;  
+    height: 40px;
+    object-fit: contain;    
 }
-.white-text { color: var(--white); }
-.white-arrow { background: var(--white); color: var(--dark); }
+
+.white-text {
+    color: var(--white);
+}
 
 .card-img img {
     max-width: 180px;
 }
 
-/* --- Accordion (Process) --- */
+/* ====================================
+   КЕЙСЫ (CASE STUDIES)
+   ==================================== */
+
+.cases {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.cases-container {
+    background-color: transparent;
+    color: var(--white);
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.case-item {
+    flex: 1;
+    background-color: var(--dark);
+    color: var(--white);
+    border-radius: 45px;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.case-item p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.case-link {
+    color: var(--green);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.case-link:hover {
+    opacity: 0.8;
+}
+
+.case-arrow-icon {
+    width: 20px;
+    height: auto;
+}
+
+/* ====================================
+   ПРОЦЕСС РАБОТЫ (АККОРДЕОН)
+   ==================================== */
+
 .process { margin-bottom: 100px; }
 
 .accordion-item {
@@ -252,8 +359,7 @@ body {
     margin-bottom: 30px;
     box-shadow: var(--shadow);
     transition: background-color 0.3s ease;
-    /* Скрываем всё, что вылезает за границы при анимации */
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .accordion-item.open {
@@ -289,24 +395,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Анимация вращения */
     transition: transform 0.4s ease;
 }
 
-/* При открытии крутим кнопку */
 .accordion-item.open .toggle-btn {
     transform: rotate(180deg);
 }
 
 .accordion-content {
-    /* Анимация развертывания */
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     margin-top: 0;
-    border-top: 1px solid transparent; /* Линия пока прозрачная */
-    
-    /* Плавный переход свойств */
+    border-top: 1px solid transparent;
     transition: 
         max-height 0.4s ease, 
         opacity 0.4s ease, 
@@ -316,221 +417,16 @@ body {
 }
 
 .accordion-item.open .accordion-content {
-    /* Раскрываем контент */
-    max-height: 200px; /* Достаточно большая высота для текста */
+    max-height: 200px;
     opacity: 1;
     margin-top: 30px;
     padding-top: 30px;
-    border-top-color: var(--dark); /* Линия становится черной */
+    border-top-color: var(--dark);
 }
 
-/* Адаптив для аккордеона */
-@media (max-width: 768px) {
-    .accordion-item {
-        padding: 20px 30px;
-    }
-    .step-number {
-        font-size: 2rem;
-    }
-    .accordion-header h3 {
-        font-size: 1.1rem;
-    }
-    .toggle-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 1.5rem;
-    }
-}
-
-/* --- Footer --- */
-.footer {
-    background-color: var(--dark);
-    color: var(--white);
-    padding: 50px 0;
-    border-top-left-radius: 45px;
-    border-top-right-radius: 45px;
-}
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
-}
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
-}
-.subscribe-form {
-    background: #292A32;
-    padding: 40px;
-    border-radius: 14px;
-    display: flex;
-    gap: 20px;
-}
-.subscribe-form input {
-    background: transparent;
-    border: 1px solid #fff;
-    padding: 15px;
-    border-radius: 14px;
-    color: #fff;
-}
-.subscribe-form button {
-    background: var(--green);
-    border: none;
-    padding: 15px 30px;
-    border-radius: 14px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-/* --- CTA Block (Let's make things happen) --- */
-.cta-block {
-    background-color: var(--grey);
-    border-radius: 45px;
-    padding: 60px;
-    margin-top: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    /* ИЗМЕНЕНИЕ 1: Разрешаем элементам вылезать за границы */
-    overflow: visible; 
-}
-
-.cta-content {
-    max-width: 500px;
-    /* Чтобы текст был поверх картинки, если они пересекутся */
-    position: relative; 
-    z-index: 2; 
-}
-
-.cta-content h3 {
-    font-size: 2rem;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.cta-content p {
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.cta-image {
-    /* Чтобы картинка не сжималась */
-    flex-shrink: 0; 
-    /* ИЗМЕНЕНИЕ 2: Отрицательные отступы, чтобы расширить границы для картинки */
-    margin-top: -50px; 
-    margin-bottom: -50px;
-    margin-right: -40px; /* Сдвигаем немного вправо за край */
-    position: relative;
-    z-index: 1;
-}
-
-.cta-image img {
-    /* ИЗМЕНЕНИЕ 3: Увеличиваем картинку */
-    max-width: 450px; 
-    height: auto;
-    /* Можно добавить масштаб, если картинка сама по себе маленькая */
-    transform: scale(1.2); 
-}
-
-/* Адаптив для CTA блока на мобильных */
-@media (max-width: 768px) {
-    .cta-block {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 20px;
-        /* На мобильном лучше обрезать, чтобы не появилось горизонтальной прокрутки */
-        overflow: hidden; 
-    }
-    
-    .cta-content {
-        margin-bottom: 40px;
-    }
-
-    .cta-image {
-        margin: 0; /* Сбрасываем отрицательные отступы */
-    }
-
-    .cta-image img {
-        max-width: 250px;
-        transform: scale(1); /* Сбрасываем увеличение */
-    }
-}
-
-.cases {
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-
-.cases-container {
-    background-color: transparent; /* Фон прозрачный */
-    color: var(--white);
-    padding: 0;
-    
-    /* Флекс для расположения в ряд */
-    display: flex; 
-    
-    /* ИСПРАВЛЕНИЕ 1: Убран пробел между 20 и px */
-    gap: 20px; 
-}
-
-.case-item {
-    flex: 1; /* Растягиваем элементы равномерно */
-    
-    background-color: var(--dark); /* Черный фон у каждой карточки */
-    color: var(--white);
-    border-radius: 45px; /* Закругление */
-    padding: 60px 40px; /* Отступы внутри карточки */
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.case-item p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.case-link {
-    color: var(--green);
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.case-link:hover {
-    opacity: 0.8;
-}
-
-.case-arrow-icon {
-    width: 20px;
-    height: auto;
-}
-
-@media (max-width: 900px) {
-    .cases-container {
-        flex-direction: column;
-        padding: 0;
-        gap: 20px;
-    }
-
-    .case-item {
-        border-radius: 45px;
-        padding: 40px 30px;
-    }
-    
-    /* На всякий случай убеждаемся, что отступы есть и на мобильном */
-    .case-item:first-child,
-    .case-item:last-child {
-        padding: 40px 30px;
-    }
-}
+/* ====================================
+   КОМАНДА
+   ==================================== */
 
 .team {
     margin-bottom: 100px;
@@ -538,7 +434,6 @@ body {
 
 .team-grid {
     display: grid;
-    /* Создаем 3 колонки, которые адаптируются */
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 40px;
 }
@@ -555,13 +450,12 @@ body {
 
 .team-card-header {
     display: flex;
-    align-items: flex-end; /* Выравниваем по низу фото */
+    align-items: flex-end;
     gap: 20px;
     position: relative;
     margin-bottom: 20px;
 }
 
-/* Настройка области аватарки */
 .avatar-wrapper {
     position: relative;
     width: 100px;
@@ -574,14 +468,12 @@ body {
 .avatar-wrapper img {
     width: 100%;
     height: 100%;
-    border-radius: 50%; /* Круглое фото */
+    border-radius: 50%;
     object-fit: cover;
     position: relative;
-    z-index: 2; /* Фото поверх зеленой формы */
-    /* Маска, чтобы обрезать фото, если нужно, или просто круглое */
+    z-index: 2;
 }
 
-/* Зеленая форма-цветок позади фото */
 .flower-shape {
     display: none;
     position: absolute;
@@ -591,9 +483,9 @@ body {
     height: 100%;
     background-color: var(--green);
     z-index: 1;
-    border-radius: 40% 40% 40% 0%; /* Создаем форму лепестка */
+    border-radius: 40% 40% 40% 0%;
 }
-/* Делаем разные формы лепестков для разнообразия через nth-child, если хотим */
+
 .team-card:nth-child(even) .flower-shape {
     border-radius: 40% 40% 0% 40%;
     top: -5px;
@@ -601,7 +493,7 @@ body {
 
 .team-info {
     flex-grow: 1;
-    margin-bottom: 10px; /* Немного приподнять текст относительно низа фото */
+    margin-bottom: 10px;
 }
 
 .team-info h4 {
@@ -614,7 +506,6 @@ body {
     font-weight: 300;
 }
 
-/* Иконка LinkedIn */
 .linkedin-icon {
     position: absolute;
     top: 0;
@@ -629,7 +520,7 @@ body {
     justify-content: center;
     text-decoration: none;
     font-weight: bold;
-    font-family: sans-serif; /* Для логотипа 'in' */
+    font-family: sans-serif;
     font-size: 1.1rem;
 }
 
@@ -637,7 +528,7 @@ body {
     border: 0;
     border-top: 1px solid var(--dark);
     margin: 20px 0;
-    opacity: 0.3; /* Линия чуть светлее */
+    opacity: 0.3;
 }
 
 .team-card p {
@@ -645,7 +536,10 @@ body {
     line-height: 1.5;
 }
 
-/* --- Testimonials Section --- */
+/* ====================================
+   ОТЗЫВЫ (TESTIMONIALS)
+   ==================================== */
+
 .testimonials {
     margin-bottom: 100px;
 }
@@ -653,39 +547,36 @@ body {
 .testimonials-wrapper {
     background-color: var(--dark);
     border-radius: 45px;
-    padding: 80px 0; /* Отступы сверху и снизу внутри черного блока */
+    padding: 80px 0;
     color: var(--white);
     position: relative;
-    overflow: hidden; /* Чтобы слайды не вылезали за радиус */
+    overflow: hidden;
 }
 
-/* Окно слайдера */
 .slider-container {
-    max-width: 800px; /* Ширина видимой части контента */
+    max-width: 800px;
     margin: 0 auto;
     overflow: hidden;
 }
 
-/* Дорожка со слайдами */
 .slider-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    gap: 40px; /* Расстояние между слайдами */
+    gap: 40px;
 }
 
 .testimonial-slide {
-    min-width: 100%; /* Один слайд занимает 100% ширины контейнера */
+    min-width: 100%;
     box-sizing: border-box;
     padding: 0 20px;
 }
 
-/* Пузырь с текстом */
 .bubble {
     border: 1px solid var(--green);
     border-radius: 45px;
     padding: 40px;
     position: relative;
-    margin-bottom: 40px; /* Место для хвостика и имени */
+    margin-bottom: 40px;
 }
 
 .bubble p {
@@ -693,23 +584,21 @@ body {
     line-height: 1.6;
 }
 
-/* Хвостик пузыря (треугольник через CSS) */
 .bubble::after {
     content: "";
     position: absolute;
-    bottom: -11px; /* Сдвигаем вниз на половину размера квадрата */
-    left: 60px; /* Отступ слева */
+    bottom: -11px;
+    left: 60px;
     width: 20px;
     height: 20px;
-    background-color: var(--dark); /* Цвет фона как у секции, чтобы перекрыть линию */
+    background-color: var(--dark);
     border-bottom: 1px solid var(--green);
     border-right: 1px solid var(--green);
-    transform: rotate(45deg); /* Поворачиваем квадрат, чтобы получить треугольник */
+    transform: rotate(45deg);
 }
 
-/* Информация об авторе */
 .author-info {
-    padding-left: 60px; /* Выравниваем под хвостиком */
+    padding-left: 60px;
 }
 
 .green-text {
@@ -725,13 +614,12 @@ body {
     font-weight: 300;
 }
 
-/* Управление (Стрелки и точки) */
 .slider-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 500px;
-    margin: 60px auto 0; /* Отступ сверху */
+    margin: 60px auto 0;
     padding: 0 20px;
 }
 
@@ -757,24 +645,72 @@ body {
     width: 14px;
     height: 14px;
     background-color: var(--white);
-    /* Делаем форму звездочки/цветка через clip-path или просто border-radius */
-    border-radius: 50%; 
+    border-radius: 50%;
     cursor: pointer;
     transition: 0.3s;
     opacity: 0.5;
 }
 
-/* Активная точка - зеленая звезда */
 .dot.active {
     background-color: var(--green);
     opacity: 1;
     transform: scale(1.2);
-    /* Превращаем в звездочку (четырехконечную) */
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     border-radius: 0;
 }
 
-/* --- Contact Us Section --- */
+/* ====================================
+   CTA БЛОК
+   ==================================== */
+
+.cta-block {
+    background-color: var(--grey);
+    border-radius: 45px;
+    padding: 60px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: visible;
+}
+
+.cta-content {
+    max-width: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.cta-image {
+    flex-shrink: 0;
+    margin-top: -50px;
+    margin-bottom: -50px;
+    margin-right: -40px;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-image img {
+    max-width: 450px;
+    height: auto;
+    transform: scale(1.2);
+}
+
+/* ====================================
+   КОНТАКТЫ
+   ==================================== */
+
 .contact {
     margin-bottom: 100px;
 }
@@ -782,21 +718,19 @@ body {
 .contact-container {
     background-color: var(--grey);
     border-radius: 45px;
-    padding: 60px 0 60px 100px; /* Отступ слева больше для формы */
+    padding: 60px 0 60px 100px;
     display: flex;
     justify-content: space-between;
     position: relative;
-    overflow: hidden; /* Обрезает картинку, которая вылезает справа */
+    overflow: hidden;
 }
 
-/* --- Form Styles --- */
 .contact-form {
     flex: 1;
     max-width: 550px;
-    z-index: 2; /* Чтобы форма была поверх картинки на узких экранах */
+    z-index: 2;
 }
 
-/* Radio Buttons Styling */
 .radio-group {
     display: flex;
     gap: 35px;
@@ -811,12 +745,10 @@ body {
     font-size: 1.1rem;
 }
 
-/* Скрываем стандартный кружок */
 .radio-label input {
     display: none;
 }
 
-/* Создаем свой кружок */
 .custom-radio {
     width: 28px;
     height: 28px;
@@ -829,21 +761,19 @@ body {
     transition: 0.2s;
 }
 
-/* Точка внутри кружка (появляется при :checked) */
 .custom-radio::after {
     content: "";
     width: 16px;
     height: 16px;
     background: var(--green);
     border-radius: 50%;
-    display: none; /* Скрыта по умолчанию */
+    display: none;
 }
 
 .radio-label input:checked + .custom-radio::after {
-    display: block; /* Показываем, если выбрано */
+    display: block;
 }
 
-/* Inputs */
 .form-group {
     margin-bottom: 25px;
 }
@@ -874,53 +804,148 @@ body {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--green); /* Зеленая рамка при фокусе */
+    border-color: var(--green);
 }
 
-/* Кнопка на всю ширину */
-.btn-full {
-    width: 100%;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-/* --- Image Right Side --- */
 .contact-image-wrapper {
     position: absolute;
     top: 0;
-    right: -150px; /* Сдвигаем картинку вправо, чтобы она "выглядывала" */
+    right: -150px;
     height: 100%;
     width: 50%;
-    pointer-events: none; /* Чтобы картинка не мешала кликам, если перекроет что-то */
+    pointer-events: none;
     display: flex;
     align-items: center;
 }
 
 .contact-img {
-    height: 100%; /* Растягиваем по высоте контейнера */
+    height: 100%;
     width: auto;
+    position: relative;
+    right: -100px;
     object-fit: contain;
 }
 
-/* --- Footer Icons Update --- */
+/* ====================================
+   FOOTER
+   ==================================== */
 
-/* Делаем картинку логотипа белой */
+.footer-section {
+    padding-bottom: 0;
+}
+
+.footer-wrapper {
+    background-color: var(--dark);
+    color: var(--white);
+    padding: 50px 60px;
+    border-radius: 45px 45px 0 0;
+    margin-top: 50px;
+    min-height: auto;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-nav {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.footer-nav a {
+    color: var(--white);
+    text-decoration: underline;
+    font-size: 1.1rem;
+}
+
+.footer-nav a:hover {
+    color: var(--green);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    align-items: flex-start;
+}
+
+.contact-label {
+    background-color: var(--green);
+    color: var(--dark);
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.subscribe-form {
+    background: #292A32;
+    padding: 40px;
+    border-radius: 14px;
+    display: flex;
+    gap: 20px;
+}
+
+.subscribe-form input {
+    background: transparent;
+    border: 1px solid #fff;
+    padding: 15px;
+    border-radius: 14px;
+    color: #fff;
+}
+
+.subscribe-form button {
+    background: var(--green);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 3px solid white;
+    margin-bottom: 30px;
+    opacity: 0.5;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.credits a {
+    color: var(--white);
+    text-decoration: none;
+}
+
 .footer-logo-img {
     height: 30px;
     width: auto;
-    /* Инвертирует цвета: черный станет белым */
-    filter: brightness(0) invert(1); 
+    filter: brightness(0) invert(1);
 }
 
-/* Контейнер для иконок соцсетей */
 .socials {
     display: flex;
     gap: 20px;
 }
 
-/* Сами иконки */
 .social-icon svg {
     width: 30px;
     height: 30px;
@@ -929,87 +954,92 @@ body {
 }
 
 .social-icon:hover svg {
-    transform: translateY(-3px); /* Легкая анимация при наведении */
+    transform: translateY(-3px);
 }
 
-.menu-toggle {
-    display: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 6px;
-    z-index: 1001; /* Поверх всего */
+/* ====================================
+   КАСТОМНЫЙ SCROLLBAR
+   ==================================== */
+
+::-webkit-scrollbar {
+    width: 18px !important;
+    height: 24px !important;
+    background: #F3F3F3;
 }
 
-/* Рисуем полоски бургера */
-.menu-toggle .bar {
-    width: 30px;
-    height: 3px;
-    background-color: var(--dark);
-    border-radius: 3px;
-    transition: 0.3s;
+::-webkit-scrollbar-track {
+    background-color: #F3F3F3 !important;
+    border: none !important;
+    border-radius: 0 !important;
 }
 
-/* --- Media Queries (Mobile) --- */
+::-webkit-scrollbar-thumb {
+    background-color: #000000 !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #1a1a1a !important;
+}
+
+::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+::-webkit-scrollbar-corner {
+    background: #F3F3F3 !important;
+}
+
+/* ====================================
+   АДАПТИВНОСТЬ (MOBILE)
+   ==================================== */
+
 @media (max-width: 900px) {
-
+    /* Логотипы */
     .logos {
-        display: grid; /* Включаем сетку вместо флекса */
-        grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
-        /* Поскольку у вас 6 логотипов, они автоматически встанут в 2 ряда */
-        gap: 30px; /* Расстояние между ячейками */
-        justify-items: center; /* Центрируем логотипы по горизонтали */
-        align-items: center; /* Центрируем по вертикали */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        justify-items: center;
+        align-items: center;
         margin-bottom: 60px;
     }
 
-    /* Немного уменьшим логотипы, чтобы они не слипались в сетке */
     .logos img {
-        max-width: 80px; 
+        max-width: 80px;
         height: auto;
     }
 
-       /* --- Кнопка Бургера --- */
+    /* Бургер-меню */
     .menu-toggle {
-        display: flex; /* Показываем кнопку */
+        display: flex;
     }
 
-    /* --- Мобильное меню --- */
     .nav-links {
-        /* Скрываем меню по умолчанию */
-        display: none; 
-        
-        /* Позиционирование */
-        position: absolute; /* Вырываем из потока */
-        top: 100%; /* Приклеиваем к нижней границе шапки */
+        display: none;
+        position: absolute;
+        top: 100%;
         left: 0;
-        width: 100%; /* На всю ширину экрана */
-        
-        /* Внешний вид */
-        background-color: var(--white); /* Обязательно белый фон */
-        flex-direction: column; /* Ссылки в столбик */
-        align-items: center; /* Текст по центру */
-        padding: 30px 0; /* Отступы внутри меню */
-        gap: 20px; /* Расстояние между ссылками */
-        
-        /* Граница снизу, как на макете */
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        gap: 20px;
         border-bottom: 1px solid var(--dark);
-        border-top: 1px solid var(--dark); 
-        
-        /* Тень, чтобы меню визуально лежало поверх контента */
+        border-top: 1px solid var(--dark);
         box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        
-        /* Важно для видимости */
         z-index: 999;
     }
 
-    /* --- Активное состояние (когда нажали бургер) --- */
     .nav-links.active {
-        display: flex; /* Просто включаем flex, меню появится */
+        display: flex;
     }
 
-    /* --- Стили ссылок в меню --- */
     .nav-links li {
         width: 100%;
         text-align: center;
@@ -1022,89 +1052,168 @@ body {
         color: var(--dark);
     }
 
-    /* Кнопка внутри меню */
     .btn-outline {
-        width: 80%; /* Не на весь экран, а аккуратно */
+        width: 80%;
         text-align: center;
         margin-top: 10px;
     }
 
-    /* --- Анимация крестика --- */
     .menu-toggle.is-active .bar:nth-child(2) {
         opacity: 0;
     }
+
     .menu-toggle.is-active .bar:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
+
     .menu-toggle.is-active .bar:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
     }
 
-    /* --- Адаптация остальных блоков --- */
-    
     /* Hero */
     .hero {
         flex-direction: column;
         text-align: center;
     }
-    .hero-content { max-width: 100%; }
-    .hero-image { 
-        order: -1; 
-        margin-bottom: 30px; 
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-image {
+        order: -1;
+        margin-bottom: 30px;
         display: flex;
         justify-content: center;
     }
-    .hero-image img { max-width: 80%; }
 
-    /* Services & Cards */
-    .services-grid { grid-template-columns: 1fr; }
-    .card { 
-        flex-direction: column; 
-        height: auto; 
-        align-items: flex-start; 
+    .hero-image img {
+        max-width: 80%;
+    }
+
+    /* Сервисы и карточки */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
         gap: 30px;
     }
-    .card-img { align-self: center; }
 
+    .card-img {
+        align-self: center;
+    }
+
+    /* Кейсы */
     .cases-container {
         flex-direction: column;
         padding: 0;
-        gap: 20px; /* Отступы между карточками по вертикали */
+        gap: 20px;
     }
 
     .case-item {
-        border-radius: 45px; /* Сохраняем круглые углы */
+        border-radius: 45px;
         border: none;
         padding: 40px 30px;
     }
 
-    .case-item:last-child, 
+    .case-item:last-child,
     .case-item:first-child {
         padding: 40px 30px;
         border: none;
     }
 
-    /* Team */
-    .team-grid { grid-template-columns: 1fr; }
-    
-    /* Footer */
-    .footer-content, .subscribe-form { flex-direction: column; gap: 30px; }
-    
-    /* CTA Block */
+    /* Команда */
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Аккордеон */
+    .accordion-item {
+        padding: 20px 30px;
+    }
+
+    .step-number {
+        font-size: 2rem;
+    }
+
+    .accordion-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .toggle-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+
+    /* CTA блок */
     .cta-block {
         flex-direction: column;
         text-align: center;
         padding: 40px 20px;
-        overflow: hidden; 
+        overflow: hidden;
     }
-    .cta-content { margin-bottom: 40px; }
-    .cta-image { margin: 0; }
-    .cta-image img { max-width: 250px; transform: scale(1); }
-    
-    /* Contact Form */
+
+    .cta-content {
+        margin-bottom: 40px;
+    }
+
+        .cta-image {
+        display: none; 
+    }   
+
+    .cta-image img {
+        max-width: 250px;
+        transform: scale(1);
+    }
+
+    /* Контакты */
     .contact-container {
         flex-direction: column;
         padding: 40px 20px;
     }
-    .contact-image-wrapper { display: none; }
+
+    .contact-image-wrapper {
+        display: none;
+    }
+
+    /* Footer */
+    .footer-wrapper {
+        padding: 30px 20px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .subscribe-form {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+    }
 }
